@@ -32,6 +32,10 @@ function Nav() {
               Registration
             </Link>
 
+            <Link className="navLink" to="/ProfilePage">
+              Profile Page
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
