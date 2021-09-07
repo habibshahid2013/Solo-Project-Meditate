@@ -36,6 +36,14 @@ function Nav() {
               Profile Page
             </Link>
 
+            <Link className="navLink" to="/Dashboard">
+              Dashboard
+            </Link>
+
+            <Link className="navLink" to="/HostASession">
+              Host A Session
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>

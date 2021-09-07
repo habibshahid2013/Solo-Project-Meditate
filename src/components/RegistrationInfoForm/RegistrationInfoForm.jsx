@@ -3,15 +3,22 @@ import { useSelector } from 'react-redux';
 
 
 function RegistrationInfoForm(props) {
-    // Using hooks we're creating local state for a "heading" variable with
-    // a default value of 'Functional Component'
+
     const store = useSelector((store) => store);
     const [heading, setHeading] = useState('Functional Component');
 
     return (
-        <div>
-            <h2>{heading}</h2>
-        </div>
+        <form>
+            <input>Email Address</input>
+            <input>First Name</input>
+            <input>last Name</input>
+            <input>username</input>
+            <input>created password</input>
+            <input>re-enter password</input>
+            <select> preferred Mediative practice</select>
+            <select>Spritual belief</select>
+            <button> Submit</button>
+        </form>
     );
 }
 
