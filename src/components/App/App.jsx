@@ -25,8 +25,6 @@ import Dashboard from '../DashBoard/Dashboard';
 import HostASession from '../HostASession/HostASession';
 import ContactForm from '../ContactForm/ContactForm';
 
-import ParlorForm from '../ParlorForm/ParlorForm'
-
 import './App.css';
 
 function App() {
@@ -105,15 +103,6 @@ function App() {
             path="/ContactForm"
           >
             <ContactForm />
-          </ProtectedRoute>
-
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/ParlorForm"
-          >
-            <ParlorForm />
           </ProtectedRoute>
 
           <ProtectedRoute

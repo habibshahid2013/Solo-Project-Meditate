@@ -48,10 +48,6 @@ function Nav() {
              Contact Form
             </Link>
 
-            <Link className="navLink" to="/ParlorForm">
-              Parlor Form
-            </Link>
-
             <Link className="navLink" to="/info">
               Info Page
             </Link>
