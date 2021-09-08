@@ -11,9 +11,26 @@ function HostASession(props) {
     const [heading, setHeading] = useState('Functional Component');
 
     return (
+        <>
         <div>
-            <h2>{heading}</h2>
+            <h1> Host a Mediattive Session</h1>
         </div>
+
+        <div>
+        <form> 
+            <h3>i am hosting</h3>
+            <select> Type of</select>
+            <h3> on</h3>
+            <select>Date</select>
+            <h3>at</h3>
+            <select>Time</select>
+            <select>location</select>
+            <h3>for</h3>
+            <select>number of people</select>
+            <button>Update</button>
+        </form>
+       </div>
+       </>
     );
 }
 

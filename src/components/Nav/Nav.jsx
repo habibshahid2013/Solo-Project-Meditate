@@ -44,6 +44,10 @@ function Nav() {
               Host A Session
             </Link>
 
+            <Link className="navLink" to="/ContactForm">
+             Contact Form
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>

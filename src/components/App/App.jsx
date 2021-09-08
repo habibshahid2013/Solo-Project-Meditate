@@ -23,6 +23,7 @@ import RegistrationInfoForm from '../RegistrationInfoForm/RegistrationInfoForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import Dashboard from '../DashBoard/Dashboard';
 import HostASession from '../HostASession/HostASession';
+import ContactForm from '../ContactForm/ContactForm';
 
 import './App.css';
 
