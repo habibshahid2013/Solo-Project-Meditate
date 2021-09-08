@@ -24,7 +24,7 @@ function HostASession(props) {
             <select>Date</select>
             <h3>at</h3>
             <select>Time</select>
-            <select>location</select>
+            <input>address</input>
             <h3>for</h3>
             <select>number of people</select>
             <button>Update</button>
