@@ -29,19 +29,19 @@ function Nav() {
             </Link>
 
 
-            <Link className="navLink" to="/ProfilePage">
+            <Link className="navLink" to="/profilepage">
               Profile Page
             </Link>
 
-            <Link className="navLink" to="/Dashboard">
+            <Link className="navLink" to="/dashboard">
               Dashboard
             </Link>
 
-            <Link className="navLink" to="/HostASession">
+            <Link className="navLink" to="/hostasession">
               Host A Session
             </Link>
 
-            <Link className="navLink" to="/ContactForm">
+            <Link className="navLink" to="/contactform">
              Contact Form
             </Link>
 

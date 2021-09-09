@@ -67,7 +67,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/ProfilePage"
+            path="/profilepage"
           >
             <ProfilePage />
           </ProtectedRoute>
@@ -75,7 +75,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/Dashboard"
+            path="/dashboard"
           >
             <Dashboard />
           </ProtectedRoute>
@@ -83,7 +83,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/HostASession"
+            path="/hostasession"
           >
             <HostASession />
           </ProtectedRoute>
@@ -91,7 +91,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/ContactForm"
+            path="/contactform"
           >
             <ContactForm />
           </ProtectedRoute>
