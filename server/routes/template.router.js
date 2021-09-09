@@ -37,7 +37,24 @@ router.get('/', rejectUnauthenticated,  (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
-});
+  console.log(req.body);
+  // RETURNING "id" will give us back the id of the created form
+  const insertRegistrationQuery = `
+  INSERT INTO "user_info" ( "email", "username", "password", "spritual_belief", "preferred_method")
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING "id";`
+
+  // FIRST QUERY Add Form
+  pool.query(insertRegistrationQuery, [req.body.email, req.body.username, req.body.password, req.body.spiritualBelief, req.body.preferred_method])
+    .then(result => {
+      console.log('New Register Id:', result.rows[0].id); //ID IS HERE!
+
+        res.sendStatus(201);
+      }).catch(err => {
+        // catch for second query
+        console.log(err);
+        res.sendStatus(500)
+      })
+})
 
 module.exports = router;

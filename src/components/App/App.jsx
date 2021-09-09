@@ -19,7 +19,6 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import RegistrationInfoForm from '../RegistrationInfoForm/RegistrationInfoForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import Dashboard from '../DashBoard/Dashboard';
 import HostASession from '../HostASession/HostASession';
@@ -63,14 +62,6 @@ function App() {
             path="/user"
           >
             <UserPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/RegistrationInfoForm"
-          >
-            <RegistrationInfoForm />
           </ProtectedRoute>
 
           <ProtectedRoute

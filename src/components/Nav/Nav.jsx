@@ -28,9 +28,6 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/RegistrationInfoForm">
-              Registration
-            </Link>
 
             <Link className="navLink" to="/ProfilePage">
               Profile Page
