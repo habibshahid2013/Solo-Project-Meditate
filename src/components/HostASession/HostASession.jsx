@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './host.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom';
+
 
 
 function HostASession(props) {
@@ -16,17 +18,21 @@ function HostASession(props) {
     const [address, setAddress] = useState('')
     const [numberOfPeople, setNumberOfPeople] = useState(0)
 
+    const dispatch = useDispatch();
+
     //enables history to move between pages
     const history = useHistory();
 
-    
+    console.log('preferred method', preferred_method);
+    console.log('date', date);
+
     const handleSession = (event) => {
         event.preventDefault();
         if (preferred_method.length > 0 && date.length > 0 && time.length > 0 && address.length > 0 && numberOfPeople.length > 0) {
             //dispatch over to saga
 
             dispatch({
-                type: '',
+                type: 'ADD_HOST',
                 payload: {
                     preferred_method: preferred_method,
                     date: date,
@@ -61,8 +67,9 @@ function HostASession(props) {
         <>
         <h1>Host a Meditation Session</h1>
             <div className={classes.root}>
-                
-                <Grid container spacing={2} onSubmit={handleSession}>
+
+                <form onSubmit={handleSession}>
+                <Grid container spacing={2} >
                     <Grid item xs={12}>
                         <Paper className={classes.paper}> I am interested in hosting <select
                             type="text"
@@ -126,7 +133,7 @@ function HostASession(props) {
                     </Grid>
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <label for="time"> number of people able to attend: </label>
+                                <label for="number of people"> number of people able to attend: </label>
                                 <select
                                     type="number"
                                     name="number of people"
@@ -140,12 +147,13 @@ function HostASession(props) {
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                     <option value="6">6</option>
-                                    <option value="6">7 or more</option>
+                                    <option value="7">7 or more</option>
                                 </select></Paper>
                             <Paper className={classes.paper}>
-                                <button type="submit">Submit</button></Paper>
+                                <Button type="submit" color="secondary">Submit</Button></Paper>
                         </Grid>
                 </Grid>
+                </form>
             </div>
        </>
     );
