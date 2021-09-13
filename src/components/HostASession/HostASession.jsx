@@ -28,7 +28,7 @@ function HostASession(props) {
 
     const handleSession = (event) => {
         event.preventDefault();
-        if (preferred_method.length > 0 && date.length > 0 && time.length > 0 && address.length > 0 && numberOfPeople.length > 0) {
+      //  if (preferred_method.length > 0 && date.length > 0 && time.length > 0 && address.length > 0 && numberOfPeople.length > 0) {
             //dispatch over to saga
 
             dispatch({
@@ -42,8 +42,8 @@ function HostASession(props) {
                 }
             })
             history.push('/Dashboard')
-        }
-        else alert('Please put valid data into all of the input feilds')
+    // }
+    //     else alert('Please put valid data into all of the input feilds')
     
     }
    // end registerUser

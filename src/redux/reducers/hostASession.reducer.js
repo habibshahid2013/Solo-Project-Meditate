@@ -1,9 +1,9 @@
-const hostReducer = (state = {}, action) => {
+const hostReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_HOST':
             return action.payload;
         case 'UNSET_HOST':
-            return {};
+            return [];
         default:
             return state;
     }

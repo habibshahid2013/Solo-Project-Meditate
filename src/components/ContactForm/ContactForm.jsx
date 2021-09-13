@@ -25,6 +25,7 @@ function ContactForm() {
             })
                 .then(() => {
                     alert('Message submitted 👍');
+                    setLoader(false)
                 })
                 .catch((error) => {
                     alert(error.message);

@@ -26,7 +26,7 @@ function Dashboard() {
 
     //UseEffect is needed to run Fetch_DETAILS within component 
     useEffect(() => {
-        dispatch({ type: 'SET_HOST', payload: host });
+        dispatch({ type: 'FETCH_HOST' });
     }, []);
 
 
@@ -76,10 +76,19 @@ function Dashboard() {
                                 </tr>
                             </thead>
                             <tbody>
+                                {host.map(session => (
+                                    <tr>
+                                        <th scope="row">{session.id}</th>
+                                        <td><button>edit</button></td>
+                                        <td>{session.preferred_method}</td>
+                                        <td>{session.date}</td>
+                                        <td>{session.time}</td>
+                                        <td>{session.numberOfPeople}</td>
+                                        <td>{session.time}</td>
+                                        <td><button>delete</button></td>
+                                    </tr>
+                                ))}
 
-                                <tr>
-                                    <td> </td>
-                                </tr>
                             </tbody>
                         </table>
 

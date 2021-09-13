@@ -7,7 +7,15 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  * GET route template
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-    
+    const query = `SELECT * FROM "events"`;
+    pool.query(query)
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('events GET failed', err);
+            res.sendStatus(500)
+        })
 });
 
 /**
