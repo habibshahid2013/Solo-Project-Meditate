@@ -78,14 +78,14 @@ function HostASession(props) {
                             required
                             onChange={(event) => setPreferred_Method(event.target.value)}>
                             <option defaultValue=""> Type of Session</option>
-                            <option value="1">mindfulness meditation session</option>
-                            <option value="2">spiritual meditation session</option>
-                            <option value="3">focused meditation session</option>
-                            <option value="4">movement meditation session</option>
-                            <option value="5">mantra meditation session</option>
-                            <option value="6">transcendental meditation session</option>
-                            <option value="7">loving-kindness meditation session</option>
-                            <option value="8">visualization meditation session</option>
+                            <option value="mindfulness meditation session">mindfulness meditation session</option>
+                            <option value="spiritual meditation session">spiritual meditation session</option>
+                            <option value="spiritual meditation session">focused meditation session</option>
+                            <option value="movement meditation session">movement meditation session</option>
+                            <option value="mantra meditation session">mantra meditation session</option>
+                            <option value="transcendental meditation session">transcendental meditation session</option>
+                            <option value="loving-kindness meditation session">loving-kindness meditation session</option>
+                            <option value="visualization meditation session">visualization meditation session</option>
                         </select>  
                          during 
                         <input
