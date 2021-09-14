@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -49,6 +49,22 @@ function Dashboard() {
         history.push('/hostasession')
     }
 
+    //Needed state to process the delete button
+    const [deleteItems, setDeleteItems] = useState([])
+
+    //Here is the function that handles the delete button and dispatches the delete to the Saga 
+    //which then goes to delete it fro the dataabase
+    const handleDelete = () => {
+        console.log('delete clicked for: ', deleteItems);
+        dispatch({
+            type: 'DELETE_SESSION',
+            payload: deleteItems
+        })
+     
+    }
+
+    
+
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -87,6 +103,7 @@ function getComparator(order, orderBy) {
 }
 
 function stableSort(array, comparator) {
+
     const stabilizedThis = array.map((el, index) => [el, index]);
     stabilizedThis.sort((a, b) => {
         const order = comparator(a[0], b[0]);
@@ -203,7 +220,7 @@ const EnhancedTableToolbar = (props) => {
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
                     <IconButton aria-label="delete">
-                        <DeleteIcon />
+                        <DeleteIcon onClick={() => handleDelete(numSelected)} />
                     </IconButton>
                 </Tooltip>
             ) : (
@@ -305,7 +322,7 @@ const useStyles = makeStyles((theme) => ({
     const isSelected = (name) => selected.indexOf(name) !== -1;
 
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, host.length - page * rowsPerPage);
-
+    //here us where the host ID and host reducers lines up with the database
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
@@ -327,7 +344,7 @@ const useStyles = makeStyles((theme) => ({
                             rowCount={host.length}
                         />
                         <TableBody>
-                            {stableSort(host, getComparator(order, orderBy))
+                            {host && stableSort(host, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((host, index) => {
                                     const isItemSelected = isSelected(host.name);
@@ -347,6 +364,7 @@ const useStyles = makeStyles((theme) => ({
                                                 <Checkbox
                                                     checked={isItemSelected}
                                                     inputProps={{ 'aria-labelledby': labelId }}
+                                                    onClick={() => setDeleteItems([...deleteItems, host.id])}
                                                 />
                                             </TableCell>
                                             <TableCell component="th" id={labelId} scope="host" padding="none">
@@ -390,4 +408,4 @@ const useStyles = makeStyles((theme) => ({
    
 
 
-export default Dashboard;
+export default Dashboard;``

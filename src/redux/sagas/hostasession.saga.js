@@ -43,9 +43,25 @@ function* fetchHostInfo(action){
         console.log('User get request failed', error);
     }
 }
+function* deleteHostInfo(action) {
+    try {
+
+        yield Promise.all( action.payload.map((id) => {
+             axios.delete(`/api/host/remove-session/${id}`)
+        }))
+        
+
+        yield put({
+            type: 'FETCH_HOST'
+        })
+    } catch (error) {
+
+    }
+}
 
 
 export function* watchHostASession(){
     yield takeEvery('ADD_HOST', addHost)
     yield takeEvery('FETCH_HOST', fetchHostInfo)
+    yield takeEvery('DELETE_SESSION', deleteHostInfo)
 }
