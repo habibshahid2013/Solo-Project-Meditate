@@ -126,8 +126,8 @@ function HostASession(props) {
                                     onChange={(event) => setAddress(event.target.value)}
                                     required>
                                     <option defaultValue="">Choose one</option>
-                                    <option value="1">In Person session</option>
-                                    <option value="2">Virtual session</option>
+                                    <option value="In Person session">In Person session</option>
+                                    <option value="Virtual session">Virtual session</option>
 
                                 </select></Paper>
                     </Grid>
