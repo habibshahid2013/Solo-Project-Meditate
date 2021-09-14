@@ -17,8 +17,7 @@ function* addHost(action){
         // now that the session has given us a user object
         // with an id and username set the client-side user object to let
         // the client-side code know the user is logged in
-        yield put({ type: 'SET_HOST', 
-                    payload:  response.data});
+        yield put({ type: 'FETCH_HOST'});
     } catch (error) {
         console.log('User get request failed', error);
     }

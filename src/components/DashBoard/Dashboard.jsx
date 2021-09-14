@@ -63,9 +63,6 @@ function Dashboard() {
      
     }
 
-    
-
-
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
@@ -103,8 +100,11 @@ function getComparator(order, orderBy) {
 }
 
 function stableSort(array, comparator) {
-
+    console.log('testing type of array', typeof array);
+    console.log('testing array', array);
+    {/* this is a defensive fix for the map.array isn't a function bug */ }
     const stabilizedThis = array.map((el, index) => [el, index]);
+
     stabilizedThis.sort((a, b) => {
         const order = comparator(a[0], b[0]);
         if (order !== 0) return order;
@@ -344,7 +344,7 @@ const useStyles = makeStyles((theme) => ({
                             rowCount={host.length}
                         />
                         <TableBody>
-                            {host && stableSort(host, getComparator(order, orderBy))
+                            { stableSort(host, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((host, index) => {
                                     const isItemSelected = isSelected(host.name);
