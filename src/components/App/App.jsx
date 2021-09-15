@@ -23,6 +23,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import Dashboard from '../DashBoard/Dashboard';
 import HostASession from '../HostASession/HostASession';
 import ContactForm from '../ContactForm/ContactForm';
+import EditPage from '../EditPage/EditPage';
 
 import './App.css';
 
@@ -86,6 +87,14 @@ function App() {
             path="/hostasession"
           >
             <HostASession />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/editpage/:id"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <ProtectedRoute

@@ -45,6 +45,10 @@ function Nav() {
              Contact Form
             </Link>
 
+            <Link className="navLink" to="/editpage/:id">
+              Edit Page
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
