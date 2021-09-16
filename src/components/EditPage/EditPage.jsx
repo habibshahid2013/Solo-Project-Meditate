@@ -14,8 +14,7 @@ function EditPage() {
   const { id } = useParams();
 
   const host = useSelector(store => store.hostReducer).filter(session => session.id == id)
-  console.log("testing the host ",host);
-  console.log("$$$$$$ ****&R$%^$^&%^%*%*%&%%*T7kdyiayv");
+ 
 
   const [preferred_method, setPreferred_Method] = useState("");
   const [date, setDate] = useState("");

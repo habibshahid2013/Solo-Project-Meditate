@@ -5,11 +5,13 @@ import { takeEvery, put } from "redux-saga/effects";
 function* addEdits(action) {
     try {
 
+        console.log('testing action.payload', action.payload);
+        
         // the config includes credentials which
         // allow the server session to recognize the user
         // If a user is logged in, this will return their information
         // from the server session (req.user)
-        const response = yield axios.put('/api/edits', action.payload);
+        const response = yield axios.put(`/api/host/edits/${action.payload.id}`, action.payload);
         console.log('testing host data', response.data);
 
 
@@ -24,6 +26,6 @@ function* addEdits(action) {
 
 
 
-export function* watchHostASession() {
+export function* watchEditASession() {
     yield takeEvery('EDIT', addEdits)
 }

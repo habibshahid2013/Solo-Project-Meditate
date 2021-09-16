@@ -76,21 +76,27 @@ router.post('/', (req, res) => {
         })
 })
 
-router.put('/edits', (req, res) => {
-    const preferred_method = req.body.preferred_method;
-    const date = req.body.date;
-    const time = req.body.time;
-    const address = req.body.address;
-    const numberOfPeople = req.body.numberOfPeople
-
-
+router.put('/edits/:id', (req, res) => { 
+    const params = [req.params.id, req.body.preferred_method, req.body.date, req.body.time, req.body.address, req.body.numberOfPeople]
+    // const id = req.params.id
+    // const preferred_method = req.body.preferred_method;
+    // const date = req.body.date;
+    // const time = req.body.time;
+    // const address = req.body.address;
+    // const numberOfPeople = req.body.numberOfPeople
+    // console.log('req.params testing', req.params);
+    // console.log('req.body testing', req.body);
+    
     const query = `
 UPDATE "events" 
-SET ("preferred_method", "date", "time", "address", "numberOfPeople")
-VALUES ($1, $2, $3, $4, $5)
+SET "preferred_method" = $1,
+ "date" = $2, 
+ "time" = $3, 
+ "address" = $4, 
+ "numberOfPeople" = $5
 WHERE id = $6;
     `;
-    pool.query(query, [preferred_method, date, time, address, numberOfPeople])
+    pool.query(query, [params])
         .then(result => {
             res.send(result.rows);
         })
