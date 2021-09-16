@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-router.delete('/remove-session/:id', (req, res) => {
+router.delete('/remove-session/:id',rejectUnauthenticated, (req, res) => {
     let id = [req.params.id];
     console.log('id is ', id);
 
@@ -49,7 +49,7 @@ router.get('/hostid/:id', rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     // RETURNING "id" will give us back the id of the created form
     const preferred_method = req.body.preferred_method;
@@ -76,8 +76,8 @@ router.post('/', (req, res) => {
         })
 })
 
-router.put('/edits/:id', (req, res) => { 
-    const params = [req.params.id, req.body.preferred_method, req.body.date, req.body.time, req.body.address, req.body.numberOfPeople]
+router.put('/edits/:id', rejectUnauthenticated,(req, res) => { 
+    const params = [ req.body.preferred_method, req.body.date, req.body.time, req.body.address, req.body.numberOfPeople, req.params.id]
     // const id = req.params.id
     // const preferred_method = req.body.preferred_method;
     // const date = req.body.date;
@@ -96,7 +96,7 @@ SET "preferred_method" = $1,
  "numberOfPeople" = $5
 WHERE id = $6;
     `;
-    pool.query(query, [params])
+    pool.query(query, params)
         .then(result => {
             res.send(result.rows);
         })
