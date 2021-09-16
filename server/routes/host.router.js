@@ -33,6 +33,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+router.get('/hostid/:id', rejectUnauthenticated, (req, res) => {
+    const query = `SELECT * FROM "events"
+                   WHERE "id" = $1`;
+    pool.query(query, [req.params.id])
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('events GET failed', err);
+            res.sendStatus(500)
+        })
+});
+
 /**
  * POST route template
  */
@@ -62,5 +75,29 @@ router.post('/', (req, res) => {
             res.sendStatus(500)
         })
 })
+
+router.put('/edits', (req, res) => {
+    const preferred_method = req.body.preferred_method;
+    const date = req.body.date;
+    const time = req.body.time;
+    const address = req.body.address;
+    const numberOfPeople = req.body.numberOfPeople
+
+
+    const query = `
+UPDATE "events" 
+SET ("preferred_method", "date", "time", "address", "numberOfPeople")
+VALUES ($1, $2, $3, $4, $5)
+WHERE id = $6;
+    `;
+    pool.query(query, [preferred_method, date, time, address, numberOfPeople])
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('Host edits PUT failed', err);
+            res.sendStatus(500)
+        })
+});
 
 module.exports = router;

@@ -1,21 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./host.css";
+import "./editpage.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { Filter } from "@material-ui/icons";
 
-function HostASession(props) {
+function EditPage() {
+
+  
+  const { id } = useParams();
+
+  const host = useSelector(store => store.hostReducer).filter(session => session.id == id)
+  console.log("testing the host ",host);
+  console.log("$$$$$$ ****&R$%^$^&%^%*%*%&%%*T7kdyiayv");
+
   const [preferred_method, setPreferred_Method] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [address, setAddress] = useState("");
   const [numberOfPeople, setNumberOfPeople] = useState(0);
+  
 
   const dispatch = useDispatch();
 
+  //
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_ID",
+      payload: id
+    })
+  }, [])
   //enables history to move between pages
   const history = useHistory();
 
@@ -27,9 +44,11 @@ function HostASession(props) {
     //  if (preferred_method.length > 0 && date.length > 0 && time.length > 0 && address.length > 0 && numberOfPeople.length > 0) {
     //dispatch over to saga
 
+    console.log('calling host', host);
     dispatch({
-      type: "ADD_HOST",
+      type: "EDIT",
       payload: {
+        id: id,
         preferred_method: preferred_method,
         date: date,
         time: time,
@@ -37,7 +56,9 @@ function HostASession(props) {
         numberOfPeople: numberOfPeople,
       },
     });
-    history.push("/dashboard");
+    history.push("/Dashboard");
+    // }
+    //     else alert('Please put valid data into all of the input feilds')
   };
   // end registerUser
 
@@ -55,10 +76,12 @@ function HostASession(props) {
   }));
 
   const classes = useStyles();
-  return (
+  return ( 
+    
     <>
-      <h1>Host a Meditation Session</h1>
+      <h1>EDIT PAGE</h1>
       <div className={classes.root}>
+        { host.length > 0 &&
         <form onSubmit={handleSession}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -174,9 +197,10 @@ function HostASession(props) {
             </Grid>
           </Grid>
         </form>
+        }
       </div>
     </>
   );
 }
 
-export default HostASession;
+export default EditPage;

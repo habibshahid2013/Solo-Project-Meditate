@@ -42,6 +42,21 @@ function* fetchHostInfo(action){
         console.log('User get request failed', error);
     }
 }
+
+function* fetchOneHostInfo(action){
+
+    try {
+      
+        const response = yield axios.get(`/api/host/hostid/${action.payload}`);
+        console.log('testing host data', response.data);
+
+
+       
+        yield put({ type: 'SET_HOST', payload: response.data });
+    } catch (error) {
+        console.log('User get request failed', error);
+    }
+}
 function* deleteHostInfo(action) {
     try {
 
@@ -62,5 +77,7 @@ function* deleteHostInfo(action) {
 export function* watchHostASession(){
     yield takeEvery('ADD_HOST', addHost)
     yield takeEvery('FETCH_HOST', fetchHostInfo)
+    yield takeEvery('FETCH_ID', fetchOneHostInfo)
     yield takeEvery('DELETE_SESSION', deleteHostInfo)
+
 }
