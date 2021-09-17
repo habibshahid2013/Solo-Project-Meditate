@@ -30,6 +30,7 @@ import { Button } from "@material-ui/core";
 function Dashboard() {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
+  const user = useSelector((store) => store.user);
   const host = useSelector((store) => store.hostReducer);
   console.log("host reducer", host);
 
@@ -199,6 +200,7 @@ function Dashboard() {
             variant="h6"
             id="tableTitle"
             component="div"
+            
           >
             Meditation Sessions
           </Typography>
@@ -362,7 +364,7 @@ function Dashboard() {
                         scope="host"
                         padding="none"
                       >
-                        {host.id}
+                        {user.username}
                       </TableCell>
                       <TableCell align="right">
                         {host.preferred_method}

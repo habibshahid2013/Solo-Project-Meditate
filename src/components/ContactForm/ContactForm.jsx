@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './contact.css'
-import {db} from '../ContactForm/firebase';
+import {db} from '../ChatBot/firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 

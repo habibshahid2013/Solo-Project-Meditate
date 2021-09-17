@@ -1,0 +1,17 @@
+#spiritual_belief{
+    text-align: center;
+
+}
+.inputs{
+    display: -ms-flexbox;
+    font-size: 20px;
+}
+
+h2{
+    text-align: center;
+    font-size: 14px;
+}
+
+#registration-form{
+    display: flex;
+}

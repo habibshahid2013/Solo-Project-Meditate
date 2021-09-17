@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './register.css'
+
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+
+
+
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -41,15 +50,34 @@ function RegisterForm() {
     }
    // end registerUser
 
+    const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+      backgroundColor: "teal",
+      fontFamily: "sans-serif",
+    },
+  }));
+
+  const classes = useStyles();
+
+
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h1>Registration</h1>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
         </h3>
       )}
-      <div>
+      <div className="inputs">
+      <Grid item xs={11}>
+              <Paper className={classes.paper}>
+      <div id="username">
         <label htmlFor="username">
           Username:
           <input
@@ -61,7 +89,11 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+      </Paper>
+       </Grid>
+       <Grid item xs={11}>
+       <Paper className={classes.paper}>
+      <div id="password">
         <label htmlFor="password">
           Password:
           <input
@@ -73,7 +105,11 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+       </Paper>
+       </Grid>
+        <Grid item xs={11}>
+           <Paper className={classes.paper}>
+      <div id="firstName">
         <label htmlFor="firstName">
           First Name:
           <input
@@ -85,7 +121,11 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+      </Paper>
+      </Grid>
+      <Grid item xs={11}>
+      <Paper className={classes.paper}>
+      <div id="lastName">
         <label htmlFor="lastName">
           Last Name:
           <input
@@ -97,7 +137,11 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+      </Paper>
+      </Grid>
+      <Grid item xs={11}>
+      <Paper className={classes.paper}>
+      <div id="email">
         <label htmlFor="email">
           Email:
           <input
@@ -109,7 +153,11 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+      </Paper>
+       </Grid>
+      <Grid item xs={11}>
+      <Paper className={classes.paper}>
+      <div id="preferred_method">
         <label htmlFor="preferred_method">
           Meditative Practice:
           <select
@@ -130,9 +178,14 @@ function RegisterForm() {
           </select>
         </label>
       </div>
-      <div>
+      </Paper>
+      </Grid>
+      <Grid item xs={11}>
+      <Paper className={classes.paper}>
+      <div id="spiritual_belief">
         <label htmlFor="spiritual_belief">
-          Spritual Belief:
+          Spiritual Belief:
+           </label>
           <select
             type="text"
             name="spiritual_belief"
@@ -152,9 +205,12 @@ function RegisterForm() {
             <option value="10">Humanism</option>
             <option value="11">Zoroastrianism</option>
           </select>
-        </label>
+       
       </div>
-      <div>
+      </Paper>
+      </Grid>
+      </div>
+      <div id="registration-form">
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
     </form>

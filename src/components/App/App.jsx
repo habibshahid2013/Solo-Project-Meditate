@@ -24,6 +24,7 @@ import Dashboard from '../DashBoard/Dashboard';
 import HostASession from '../HostASession/HostASession';
 import ContactForm from '../ContactForm/ContactForm';
 import EditPage from '../EditPage/EditPage';
+import ChatBot from '../ChatBot/ChatBot';
 
 import './App.css';
 
@@ -90,6 +91,17 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+           
+            exact
+            path="/chatbot"
+          >
+            <ChatBot />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+
+          
            
             exact
             path="/editpage/:id"

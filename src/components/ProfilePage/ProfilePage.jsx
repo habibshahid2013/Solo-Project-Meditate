@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './profile.css'
+import { useHistory } from "react-router-dom";
 
 
 function ProfilePage(props) {

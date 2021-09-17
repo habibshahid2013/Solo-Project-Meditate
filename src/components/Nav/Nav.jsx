@@ -48,6 +48,10 @@ function Nav() {
               Edit Page
             </Link>
 
+            <Link className="navLink" to="/chatbot">
+              Chat
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
