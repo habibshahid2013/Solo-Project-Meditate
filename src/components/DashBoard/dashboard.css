@@ -20,11 +20,11 @@ td {
 }
 
 th {
-  background-color: rgb(117, 148, 250);
+  background-color: rgb(117, 130, 51);
 }
 
 td {
-  background-color: rgb(158, 203, 231);
+  background-color: rgb(158, 130, 40);
 }
 
 form {
@@ -39,4 +39,8 @@ form td:last-child {
 
 form * {
   font-size: 7px;
+}
+
+#tableTitle{
+  text-align: center;
 }

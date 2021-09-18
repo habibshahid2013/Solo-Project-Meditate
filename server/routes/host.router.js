@@ -57,14 +57,15 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const time = req.body.time;
     const address = req.body.address;
     const numberOfPeople = req.body.numberOfPeople
+    const user = req.body.username
 
     const insertHostQuery = `
-  INSERT INTO "events" ("preferred_method", "date", "time", "address", "numberOfPeople")
-  VALUES ($1, $2, $3, $4, $5)
+  INSERT INTO "events" ("preferred_method", "date", "time", "address", "numberOfPeople", "user"")
+  VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING "id";`
 
     // FIRST QUERY Add Form
-    pool.query(insertHostQuery, [preferred_method, date, time, address, numberOfPeople])
+    pool.query(insertHostQuery, [preferred_method, date, time, address, numberOfPeople, user])
         .then(result => {
             console.log('New Register Id:', result.rows[0].id); //ID IS HERE!
 

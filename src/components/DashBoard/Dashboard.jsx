@@ -138,7 +138,7 @@ function Dashboard() {
             <TableSortLabel>Number of Attendees</TableSortLabel>
           </TableCell>
           <TableCell>
-            <TableSortLabel>Edit Button</TableSortLabel>
+            <TableSortLabel>Edit Session</TableSortLabel>
           </TableCell>
         </TableRow>
       </TableHead>
@@ -202,7 +202,7 @@ function Dashboard() {
             component="div"
             
           >
-            Meditation Sessions
+            Meditation Sessions Board
           </Typography>
         )}
 
@@ -364,7 +364,7 @@ function Dashboard() {
                         scope="host"
                         padding="none"
                       >
-                        {user.username}
+                        {host.user}
                       </TableCell>
                       <TableCell align="right">
                         {host.preferred_method}
@@ -376,8 +376,8 @@ function Dashboard() {
                       <Button
                         onClick={() => editHostASession(host.id)}
                         align="right"
-                        color="secondary"
-                        variant="contained"
+                        variant="contained" 
+                        color="success"
                         size="large"
                       >
                         EDIT

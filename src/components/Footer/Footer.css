@@ -2,4 +2,10 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
+  background-color: #5e8f0f;
+  bottom: 0;
+}
+
+#footer{
+  bottom: 0;
 }

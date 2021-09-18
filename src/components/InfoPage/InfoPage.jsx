@@ -12,9 +12,9 @@ function InfoPage() {
 
        <li>Postgres</li>
        <li>React.js</li>
+       <li>CSS</li>
+       <li>Redux</li>
        <li></li>
-       <li>Postgres</li>
-       <li>Postgres</li>
      </ul>
     </div>
   );

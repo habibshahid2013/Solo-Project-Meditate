@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
+
 function HostASession(props) {
   const [preferred_method, setPreferred_Method] = useState("");
   const [date, setDate] = useState("");
@@ -15,6 +16,8 @@ function HostASession(props) {
   const [numberOfPeople, setNumberOfPeople] = useState(0);
 
   const dispatch = useDispatch();
+
+  const user = useSelector((store) => store.user);
 
   //enables history to move between pages
   const history = useHistory();
@@ -35,6 +38,7 @@ function HostASession(props) {
         time: time,
         address: address,
         numberOfPeople: numberOfPeople,
+        user: user.username,
       },
     });
     history.push("/dashboard");
@@ -46,10 +50,10 @@ function HostASession(props) {
       flexGrow: 1,
     },
     paper: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(1),
       textAlign: "center",
       color: theme.palette.text.secondary,
-      backgroundColor: "teal",
+      backgroundColor: "olive",
       fontFamily: "sans-serif",
     },
   }));
@@ -61,10 +65,12 @@ function HostASession(props) {
       <div className={classes.root}>
         <form onSubmit={handleSession}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={4}>
+            </Grid>
+            <Grid item xs={4}>
               <Paper className={classes.paper}>
-                {" "}
-                I am interested in hosting{" "}
+                <label  className="font">
+                I am interested in hosting</label>
                 <select
                   type="text"
                   name="preferred_method"
@@ -98,7 +104,8 @@ function HostASession(props) {
                     visualization meditation session
                   </option>
                 </select>
-                during
+                <br/>
+                <label className="font" > during</label>
                 <input
                   type="date"
                   name="date"
@@ -110,11 +117,8 @@ function HostASession(props) {
                   onChange={(event) => setDate(event.target.value)}
                 ></input>
               </Paper>
-            </Grid>
-
-            <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <label for="time">Choose a time for your :</label>
+                <label className="font" for="time">Choose a time for your :</label>
                 <input
                   type="time"
                   id="time"
@@ -126,10 +130,8 @@ function HostASession(props) {
                   required
                 ></input>
               </Paper>
-            </Grid>
-            <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <label for="time">In Person or Virtual: </label>
+                <label className="font" for="time">In Person or Virtual: </label>
                 <select
                   type="test"
                   name="location"
@@ -142,10 +144,8 @@ function HostASession(props) {
                   <option value="Virtual session">Virtual session</option>
                 </select>
               </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <label for="number of people">
+               <Paper className={classes.paper}>
+                <label className="font" for="number of people">
                   {" "}
                   number of people able to attend:{" "}
                 </label>
@@ -166,12 +166,24 @@ function HostASession(props) {
                   <option value="7">7 or more</option>
                 </select>
               </Paper>
+            </Grid>
+            <Grid item xs={4}>
+            </Grid>
+            <Grid item xs={4}>
+            </Grid>
+
+            <Grid item xs={4}>
               <Paper className={classes.paper}>
-                <Button type="submit" color="secondary">
+               
+                 <Button type="submit"  color="success" size="large"  variant="contained" >
                   Submit
                 </Button>
-              </Paper>
+           
+                </Paper>
             </Grid>
+          <Grid item xs={4}>
+          </Grid>
+          
           </Grid>
         </form>
       </div>

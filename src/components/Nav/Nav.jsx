@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
+
 import "./Nav.css";
+
 import { useSelector } from "react-redux";
 
 function Nav() {
@@ -10,7 +12,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Meditate With Me 💆</h2>
+        <h2 className="nav-title"> <img className="image"src="./img/transparent-meditation-icon-yoga-icon-concentration-icon-5f36c331d824b2.4697180215974244338853.jpg" width="100" height="150" /> Meditate With Me</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -44,16 +46,12 @@ function Nav() {
               Contact Form
             </Link>
 
-            <Link className="navLink" to="/editpage/:id">
-              Edit Page
-            </Link>
-
             <Link className="navLink" to="/chatbot">
-              Chat
+              Chat Room
             </Link>
 
             <Link className="navLink" to="/info">
-              Info Page
+              Info 
             </Link>
 
             <LogOutButton className="navLink" />

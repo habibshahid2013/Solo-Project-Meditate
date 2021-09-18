@@ -69,7 +69,7 @@ function EditPage() {
       padding: theme.spacing(2),
       textAlign: "center",
       color: theme.palette.text.secondary,
-      backgroundColor: "teal",
+      backgroundColor: "olive",
       fontFamily: "sans-serif",
     },
   }));
@@ -78,15 +78,17 @@ function EditPage() {
   return ( 
     
     <>
-      <h1>EDIT PAGE</h1>
+      <h1>Edit Session</h1>
       <div className={classes.root}>
         { host.length > 0 &&
         <form onSubmit={handleSession}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={4}>
+            </Grid>
+             <Grid item xs={4}>
               <Paper className={classes.paper}>
-                {" "}
-                I am interested in hosting{" "}
+                <label>
+                I am interested in hosting</label>
                 <select
                   type="text"
                   name="preferred_method"
@@ -120,7 +122,7 @@ function EditPage() {
                     visualization meditation session
                   </option>
                 </select>
-                during
+               <label className="font"> during </label>
                 <input
                   type="date"
                   name="date"
@@ -132,11 +134,8 @@ function EditPage() {
                   onChange={(event) => setDate(event.target.value)}
                 ></input>
               </Paper>
-            </Grid>
-
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <label for="time">Choose a time for your :</label>
+               <Paper className={classes.paper}>
+                <label  className="font" for="time">Choose a time for your :</label>
                 <input
                   type="time"
                   id="time"
@@ -148,10 +147,8 @@ function EditPage() {
                   required
                 ></input>
               </Paper>
-            </Grid>
-            <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <label for="time">In Person or Virtual: </label>
+                <label  className="font" for="time">In Person or Virtual: </label>
                 <select
                   type="test"
                   name="location"
@@ -164,12 +161,10 @@ function EditPage() {
                   <option value="Virtual session">Virtual session</option>
                 </select>
               </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <label for="number of people">
-                  {" "}
-                  number of people able to attend:{" "}
+               <Paper className={classes.paper}>
+                <label className="font"for="number of people">
+                  
+                  number of people able to attend:
                 </label>
                 <select
                   type="number"
@@ -188,8 +183,15 @@ function EditPage() {
                   <option value="7">7 or more</option>
                 </select>
               </Paper>
+            </Grid>
+            <Grid item xs={4}>
+            </Grid>
+            <Grid item xs={4}>
+            </Grid>
+            <Grid item xs={4}>
+             
               <Paper className={classes.paper}>
-                <Button type="submit" color="secondary">
+                <Button  type="submit"  color="success" size="large"  variant="contained">
                   Submit
                 </Button>
               </Paper>
