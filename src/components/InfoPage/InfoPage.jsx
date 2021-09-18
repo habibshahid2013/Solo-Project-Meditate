@@ -21,7 +21,21 @@ function InfoPage() {
        <li> Firebase</li>
        <li>Google Authentication</li>
      </ul>
+    <div>
+      <h3>Things to expand on the application in the future</h3>
+      <ol>
+        <li>Build profile pages for individual users.</li>
+        <li>Provide more styling for the appeal.</li>
+        <li> make the dashboard more interactive.</li>
+        <li> Create a matching feature through the interest provided in the registration.</li>
+      </ol>
+
     </div>
+    
+    </div>
+    
+    
+    
   );
 }
 

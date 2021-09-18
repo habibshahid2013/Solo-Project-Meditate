@@ -30,9 +30,9 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/profilepage">
+            {/* <Link className="navLink" to="/profilepage">
               Profile Page
-            </Link>
+            </Link> */}
 
             <Link className="navLink" to="/dashboard">
               Dashboard
@@ -41,10 +41,7 @@ function Nav() {
             <Link className="navLink" to="/hostasession">
               Host A Session
             </Link>
-
-            <Link className="navLink" to="/contactform">
-              Contact Form
-            </Link>
+            
 
             <Link className="navLink" to="/chatbot">
               Chat Room
@@ -52,6 +49,10 @@ function Nav() {
 
             <Link className="navLink" to="/info">
               Info 
+            </Link>
+
+            <Link className="navLink" to="/contactform">
+              Contact Form
             </Link>
 
             <LogOutButton className="navLink" />
