@@ -12,6 +12,9 @@ Grid
   justify-content: flex-start;
   align-items: flex-start;
 }
+p{
+  border: ;
+}
 
 .grid-col {
   flex: 0 0 auto;

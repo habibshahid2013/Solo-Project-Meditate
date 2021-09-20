@@ -19,6 +19,8 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
+
+         
           <p>
           The intention of this application is to provide users the ability to share their Meditative preferences with one another.
           Providing a platform for users to find other users with matching meditative practices. 
